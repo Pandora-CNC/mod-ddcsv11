@@ -16,4 +16,4 @@ install/motion.out: org/motion.out patch/motion.patch
 	$(BP) org/motion.out install/motion.out patch/motion.patch
 
 clean:
-    rm install/*
+	rm install/*
