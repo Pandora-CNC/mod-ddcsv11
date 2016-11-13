@@ -1,0 +1,72 @@
+1,3c1,3
+< G04P0;暂停0s，为后续程序正确读取当前机械坐标位置
+< M5;关闭主轴
+< (读取当前刀具机械坐标位置)
+---
+> G04P0;time out 0s The current machine coordinate position is correctly read for subsequent programs
+> M5;Spindle Stop
+> (Read the current coordinate position of the tool)
+7,8c7,8
+< IF#571EQ0GOTO1;判别系统采用固定位置对刀模式还是当前位置对刀模式
+< (固定对刀模式下，求出X、Y、Z的进给量)
+---
+> IF#571EQ0GOTO1;Determines whether the system uses the fixed position tool preset mode or the current position tool preset mode
+> (In fixed tool setting mode, the feedrate for X, Y and Z is calculated)
+16c16
+< (移动到对刀初始位置)
+---
+> (Move to the initial position of the tool)
+20c20
+< (第一次以100速度下探1000mm检测对刀信号)
+---
+> (For the first time, dropping to 100 speed 1000mm tool detection signal )
+24c24
+< G04P0;同步
+---
+> G04P0;Synchronize
+29c29
+< G04P0;同步
+---
+> G04P0;Synchronize
+33c33
+< (第二次以100速度下探1000mm检测对刀信号)
+---
+> (The second time to test the speed of 100mm 1000mm tool detection signal)
+37c37
+< G04P0;同步
+---
+> G04P0;Synchronize
+42c42
+< G04P0;同步
+---
+> G04P0;Synchronize
+46c46
+< (第三次以100速度下探1000mm检测对刀信号)
+---
+> (Third rate dropping to 100 1000mm tool detection signal)
+50c50
+< G04P0;同步
+---
+> G04P0;Synchronize
+55c55
+< G04P0;同步
+---
+> G04P0;Synchronize
+59,60c59,60
+< #8=[#9+#10+#11]/3;求两次对刀平均值
+< #7=[#12+#13+#14]/3;求两次对刀平均值
+---
+> #8=[#9+#10+#11]/3;Seeking twice the average of the tool
+> #7=[#12+#13+#14]/3;Seeking twice the average of the tool
+63,65c63,65
+< #402=#8;保存坐标系Z轴零点偏置
+< #403=1;设置自动修正坐标系标志
+< #404=-#7;保存对刀块厚度，如果之前对刀块厚度参数为0，系统将采用该变量修正对刀块厚度参数，以完成第一次对刀
+---
+> #402=#8;Save the coordinate system Z axis zero offset
+> #403=1;Set up automatic correction coordinate flag
+> #404=-#7;Save the thickness of the tool gauge, if the gauge before the tool thickness parameter is 0, the system uses the variable thickness parameter Fixed tool gauge, in order to complete the first tool
+67c67
+< G91G01Z#575-#6F#578;对刀完成，Z轴回退
+---
+> G91G01Z#575-#6F#578;tool complete, Z axis rollback

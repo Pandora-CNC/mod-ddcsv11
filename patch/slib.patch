@@ -1,0 +1,177 @@
+17c17
+< (#1-#3记录指令开始时刀具工件坐标)
+---
+> (# 1- # 3 record the coordinates of the tool workpiece at the start of the command)
+21,22c21,22
+< IF #450LT0 GOTO1;判别绝对坐标编程模式还是增量坐标方式
+< (求出R平面Z坐标#4和孔底Z坐标#5，以及X、Y循环递增距离#6,#7)
+---
+> IF #450LT0 GOTO1;Determine the absolute coordinate programming mode or incremental coordinate mode
+> (Z coordinate plane determined R # 4, and Z coordinates of the bottom of the hole # 5, and X, Y incremental distance cycle # 6, # 7)
+32c32
+< (依据固定循环退刀指令以及#3与#4的位置关系求出退刀点Z坐标#8)
+---
+> (Based on fixed cycle retract instruction and the positional relationship between # 3 and # 4 obtain the retract point in Z coordinate # 8)
+37c37
+< (#11记录循环次数K)
+---
+> (# 11 record cycle number K)
+41c41
+< (Z轴快速进给到R点)
+---
+> (Z-axis rapid traverse to point R)
+44c44
+< (循环处理)
+---
+> (Loop processing)
+46,50c46,50
+< G91G00X#6Y#7;XY快速进给到孔位处
+< G90G00Z#4;Z快速进给到R点
+< G90G01Z#5;Z以切削速度钻至孔底位置
+< G90G00Z#4;Z快速抬升到R位置
+< #11=#11-1;循环次数递减
+---
+> G91G00X#6Y#7;XY rapid feed to the hole position
+> G90G00Z#4;Z rapid traverse to point R
+> G90G01Z#5;Z is drilled to the bottom of the hole at the cutting speed
+> G90G00Z#4;Z rapid uplift to the R position
+> #11=#11-1;Decreasing the number of cycles
+52c52
+< G90G00Z#8;Z快速抬升到#8位置
+---
+> G90G00Z#8;Z rapid uplift to the # 8 position
+60c60
+< (#1-#3记录指令开始时刀具工件坐标)
+---
+> (# 1- # 3 record the coordinates of the tool workpiece at the start of the command)
+64,65c64,65
+< IF #450LT0 GOTO1;判别绝对坐标编程模式还是增量坐标方式
+< (求出R平面Z坐标#4和孔底Z坐标#5，以及X、Y循环递增距离#6,#7)
+---
+> IF #450LT0 GOTO1;Determine the absolute coordinate programming mode or incremental coordinate mode
+> (Z Plane coordinates determined R # 4, and Z coordinates of the bottom of the hole # 5, and X, Y incremental distance cycle # 6, # 7)
+75c75
+< (依据固定循环退刀指令以及#3与#4的位置关系求出退刀点Z坐标#8)
+---
+> (Based on fixed cycle retract instruction and the positional relationship between # 3 and # 4 obtained retract point Z coordinate # 8)
+80c80
+< (#11记录循环次数K)
+---
+> (# 11 record cycle number K)
+84c84
+< (Z轴快速进给到R点)
+---
+> (Z-axis rapid traverse to point R)
+87c87
+< (循环处理)
+---
+> (Loop processing)
+89,91c89,91
+< G91G00X#6Y#7;XY快速进给到孔位处
+< G90G00Z#4;Z快速进给到R点
+< G90G01Z#5;Z以切削速度钻至孔底位置
+---
+> G91G00X#6Y#7;XY rapid feed to the hole position
+> G90G00Z#4;Z rapid traverse to point R
+> G90G01Z#5;Z is drilled to the bottom of the hole at the cutting speed
+93,94c93,94
+< G90G00Z#4;Z快速抬升到R位置
+< #11=#11-1;循环次数递减
+---
+> G90G00Z#4;Z rapid uplift to the R position
+> #11=#11-1;Decreasing the number of cycles
+96c96
+< G90G00Z#8;Z快速抬升到#8位置
+---
+> G90G00Z#8;Z quickly raised to # 8 position
+101c101
+< (#1-#3记录指令开始时刀具工件坐标)
+---
+> (# 1- # 3 record the coordinates of the tool workpiece at the start of the command)
+105,106c105,106
+< IF #450LT0 GOTO1;判别绝对坐标编程模式还是增量坐标方式
+< (求出R平面Z坐标#4和孔底Z坐标#5，以及X、Y循环递增距离#6,#7)
+---
+> IF #450LT0 GOTO1;Determine the absolute coordinate programming mode or incremental coordinate mode
+> (The Z-coordinate # 4 and the Z-coordinate # 5 at the bottom of the hole, and the X- and Y-loop incremental distances # 6 and # 7)
+116c116
+< (依据固定循环退刀指令以及#3与#4的位置关系求出退刀点Z坐标#8)
+---
+> (Based on fixed cycle retract instruction and the positional relationship between # 3 and # 4 obtained retract point Z coordinate # 8)
+121c121
+< (#11记录循环次数K)
+---
+> (# 11 record cycle number K)
+125c125
+< (Z轴快速进给到R点)
+---
+> (Z-axis rapid traverse to point R)
+128c128
+< (循环处理)
+---
+> Loop processing
+131,132c131,132
+< G91G00X#6Y#7;XY快速进给到孔位处
+< G90G00Z#4;Z快速进给到R点
+---
+> G91G00X#6Y#7;XY rapid feed to the hole position
+> G90G00Z#4;Z rapid traverse to point R
+138,139c138,139
+< G90G01Z#9;Z以切削速度钻逐步至孔底位置
+< G90G00Z#4;Z快速抬升到R位置
+---
+> G90G01Z#9;Z Drill down to the bottom of the hole at the cutting speed
+> G90G00Z#4;Z rapid uplift to the R position
+142c142
+< N8#11=#11-1;循环次数递减
+---
+> N8#11=#11-1;Decreasing the number of cycles
+144,145c144
+< G90G00Z#8;Z快速抬升到#8位置
+< M99
+---
+> G90G00Z#8;Z rapid uplift to the # 8 position
+208c207
+< (G102顺斜椭圆 X长 Y宽 A斜椭圆长轴与X轴角度 B初始角度 C终止角度 L角度步长)
+---
+> (G102 oblique ellipse X length Y width A oblique ellipse long axis and X axis angle B initial angle C end angle L angle step)
+223c222
+< (G103逆斜椭圆 X长 Y宽 A斜椭圆长轴与X轴角度 B初始角度 C终止角度 L角度步长)
+---
+> (G103 inverse elliptical X length Y width A oblique ellipse long axis and X axis angle B initial angle C end angle L angle step)
+238c237
+< (G110铣矩形平面 X长 Y宽 Z铣平面深度 R刀具半径)
+---
+> (G110 Milling rectangular plane X length Y width Z plane depth R tool radius)
+244c243
+< IF #450LT0 GOTO1;判别绝对坐标编程模式还是增量坐标方式
+---
+> IF #450LT0 GOTO1;Determine the absolute coordinate programming mode or incremental coordinate mode判别绝对坐标编程模式还是增量坐标方式
+270c269
+< (G111顺时针铣圆平面 I圆平面半径 Z铣平面深度 R刀具半径)
+---
+> (G111 Milling of the circle in the clockwise direction I Circle plane radius Z Milling plane depth R Tool radius)
+277c276
+< IF #450LT0 GOTO1;判别绝对坐标编程模式还是增量坐标方式
+---
+> IF #450LT0 GOTO1;Determine the absolute coordinate programming mode or incremental coordinate mode
+294c293
+< (G112逆时针铣圆平面 I圆平面半径 Z铣平面深度 R刀具半径)
+---
+> (G112 Counterclockwise milling Circular plane I Circular plane radius Z Milling plane depth R Tool radius)
+301c300
+< IF #450LT0 GOTO1;判别绝对坐标编程模式还是增量坐标方式
+---
+> IF #450LT0 GOTO1;Determine the absolute coordinate programming mode or incremental coordinate mode
+318c317
+< (O100 回零 安全高度为工件坐标)
+---
+> (O100 return to zero height for the workpiece coordinates)
+390c389
+< (O102 运行记录轨迹)
+---
+> (O102 running recording track)
+400c399
+< (O103 回零 安全高度为机械坐标)
+---
+> (O103 return to zero safety height for the machine coordinates)
